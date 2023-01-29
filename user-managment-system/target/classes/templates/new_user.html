@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Materialize Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- Materialize Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>User Management System</title>
+</head>
+<body style="max-width: 960px; margin: 16px auto; padding: 16px">
+
+  <h3>Add New User</h3>
+  <div class="row">
+    <form th:action="@{/saveUser}" th:object="${user}" method="post" class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix ">account_circle</i>
+          <input th:field="*{firstName}" id="first_name" type="text" class="validate">
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input th:field="*{lastName}" id="last_name" type="text" class="validate">
+          <label for="last_name">Last Name</label>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">phone</i>
+          <input th:field="*{phone}" id="phone" type="tel" class="validate">
+          <label for="phone">Phone</label>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">email</i>
+          <input th:field="*{email}" id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="col s6 offset-s9">
+        <button type="submit" class="waves-effect  waves-light btn">Add
+          User</button>
+      </div>
+      <br>
+      <div style="padding: 10px">
+        <a th:href="@{/}" class="btn-floating btn waves-effect waves-light pink lighten-2">
+          <i class="material-icons">arrow_back</i></a>
+      </div>
+    </form>
+  </div>
+
+
+
+</body>
+</html>
